@@ -34,7 +34,7 @@ document.getElementById('scrape').addEventListener('click', () => {
 
 function sendDataToAPI(data){
   console.log('Sending Data to API:', data);
-  const apiEndpoint = 'http://54.210.172.217:4449/add';
+  const apiEndpoint = 'http://100.25.180.96:4449/add';
 
   fetch(apiEndpoint,{
     method: 'POST',
