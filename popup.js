@@ -1,3 +1,6 @@
+const FRONTEND_URL = "http://127.0.0.1:3000";
+const BACKEND_URL = "http://127.0.0.1:4449";
+
 document.getElementById('scrape').addEventListener('click', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       chrome.scripting.executeScript({
@@ -5,11 +8,13 @@ document.getElementById('scrape').addEventListener('click', () => {
         function: scrapePrice
       }, (results) => {
 
+        const url = "http://127.0.0.1:3000";
+
         if(results[0].result.price === 'Price not found'){
           document.getElementById('price').textContent = 'Please try to visit a single product page!'
           return true;
         }
-        document.getElementById('price').textContent = 'Product Sync Complete. Please check portal';
+        document.getElementById('price').innerHTML = `Product Sync Complete. Please check portal on <a href="${FRONTEND_URL}" target="_blank">${FRONTEND_URL}</a>`;
         sendDataToAPI(results[0].result);
       });
     });
@@ -34,7 +39,7 @@ document.getElementById('scrape').addEventListener('click', () => {
 
 function sendDataToAPI(data){
   console.log('Sending Data to API:', data);
-  const apiEndpoint = 'http://100.25.180.96:4449/add';
+  const apiEndpoint = `${BACKEND_URL}/add`;
 
   fetch(apiEndpoint,{
     method: 'POST',
