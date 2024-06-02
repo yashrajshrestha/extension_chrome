@@ -8,8 +8,6 @@ document.getElementById('scrape').addEventListener('click', () => {
         function: scrapePrice
       }, (results) => {
 
-        const url = "http://127.0.0.1:3000";
-
         if(results[0].result.price === 'Price not found'){
           document.getElementById('price').textContent = 'Please try to visit a single product page!'
           return true;
