@@ -1,4 +1,4 @@
-const FRONTEND_URL = "http://100.25.194.112:3000";
+const FRONTEND_URL = "http://127.0.0.1:3000";
 const BACKEND_URL = "http://127.0.0.1:4449";
 
 document.getElementById('scrape').addEventListener('click', () => {
@@ -12,7 +12,8 @@ document.getElementById('scrape').addEventListener('click', () => {
           document.getElementById('price').textContent = 'Please try to visit a single product page!'
           return true;
         }
-        document.getElementById('price').innerHTML = `Product Sync Complete. Please check portal on <a href="${FRONTEND_URL}" target="_blank">${FRONTEND_URL}</a>`;
+        
+        document.getElementById('price').innerText = 'Syncing ...';
         sendDataToAPI(results[0].result);
       });
     });
@@ -81,6 +82,7 @@ function sendDataToAPI(data){
   })
   .then(response => response.json())
   .then(data => {
+    document.getElementById('price').innerHTML = `Product Sync Complete. Please check portal on <a href="${FRONTEND_URL}" target="_blank">${FRONTEND_URL}</a>`;
     console.log('Success:', data);
   })
   .catch((error) => {
