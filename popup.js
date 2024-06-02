@@ -1,5 +1,5 @@
-const FRONTEND_URL = "http://127.0.0.1:3000";
-const BACKEND_URL = "http://127.0.0.1:4449";
+const FRONTEND_URL = "http://100.25.194.112:3000";
+const BACKEND_URL = "http://100.25.194.112:4449";
 
 document.getElementById('scrape').addEventListener('click', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
