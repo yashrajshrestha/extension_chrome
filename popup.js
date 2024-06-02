@@ -26,12 +26,14 @@ document.getElementById('scrape').addEventListener('click', () => {
     const descriptionElement = document.querySelector('.html-content.pdp-product-highlights');
     const imageElement = document.querySelector('.gallery-preview-panel__image');
     const urlElement = window.location.href;
+    const categoryElement = document.querySelectorAll('.breadcrumb_item_anchor')[2];
     return {
       'price': priceElement ? priceElement.innerText : 'Price not found',
       'imageElement': imageElement ? imageElement.src : 'Image not found',
       'descriptionElement': descriptionElement ? descriptionElement.innerHTML : 'Description not found',
       'titleElement': titleElement ? titleElement : 'Title not found',
-      'urlElement': urlElement ? urlElement : 'URL not found'
+      'urlElement': urlElement ? urlElement : 'URL not found',
+      'categoryElement': categoryElement ? categoryElement.innerText : 'Category not found'
     };
     // return priceElement ? priceElement.innerText : 'Price not found';
   }
